@@ -1,5 +1,7 @@
 using ContactCrate.Data;
+using ContactCrate.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

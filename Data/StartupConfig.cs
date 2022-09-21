@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using ContactCrate.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContactCrate.Data;
@@ -22,7 +22,7 @@ public static class StartupConfig
 
     public static void AddAuthServices(this WebApplicationBuilder builder)
     {
-        builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        builder.Services.AddDefaultIdentity<AppUserModel>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ApplicationDbContext>();
     }
 }
