@@ -1,0 +1,38 @@
+:root {
+    --Primary: #ff4057;
+    /*Dark Theme*/
+    --color-text-Light: #DCDCDC;
+    /*Light Theme*/
+    --color-text-Dark: #282634;
+    /*Settings*/
+    --font-size: 16px;
+}
+
+.darkTheme {
+    --color-text: var(--color-text-Light);
+}
+
+.lightTheme {
+    --color-text: var(--color-text-Dark);
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+
+  color: var(--color-text);
+}
