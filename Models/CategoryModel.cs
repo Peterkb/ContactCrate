@@ -15,4 +15,5 @@ public class CategoryModel
 
     // Virtual properties
     public virtual AppUserModel? AppUser { get; set; }
+    public virtual ICollection<ContactModel> Contacts { get; set; } = new HashSet<ContactModel>();
 }

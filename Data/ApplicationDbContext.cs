@@ -10,4 +10,7 @@ public class ApplicationDbContext: IdentityDbContext<AppUserModel>
         : base(options)
     {
     }
+
+    public virtual DbSet<ContactModel> Contacts { get; set; }
+    public virtual DbSet<CategoryModel> Categories { get; set; }
 }
