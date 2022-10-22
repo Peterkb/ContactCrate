@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 
+namespace ContactCrate.Helpers;
 public static class ConnectionHelper
 {
     public static string GetConnectionString(IConfiguration configuration)

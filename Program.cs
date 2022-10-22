@@ -1,4 +1,5 @@
 using ContactCrate.Data;
+using ContactCrate.Helpers;
 using ContactCrate.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,9 @@ builder.AddDatabaseServices();
 builder.AddAuthServices();
 
 var app = builder.Build();
+
+var scope = app.Services.CreateScope();
+await DataHelper.ManageDataAsync(scope.ServiceProvider);
 
 if (app.Environment.IsDevelopment())
 {
