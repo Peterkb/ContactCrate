@@ -31,4 +31,15 @@ public static class StartupConfig
         builder.Services.AddDefaultIdentity<AppUserModel>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ApplicationDbContext>();
     }
+
+    public static void AddExternalAuthServices(this WebApplicationBuilder builder)
+    {
+        // Add Google
+
+        // Add Twitter
+
+        // Add Github
+
+        // Add Facebook
+    }
 }
