@@ -17,9 +17,9 @@ namespace ContactCrate.Areas.Identity.Pages.Account
 {
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<AppUserModel> _userManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ConfirmEmailModel(UserManager<AppUserModel> userManager)
+        public ConfirmEmailModel(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }

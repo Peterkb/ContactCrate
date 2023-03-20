@@ -16,8 +16,6 @@ public static class StartupConfig
 
     public static void AddDatabaseServices(this WebApplicationBuilder builder)
     {
-        //var connectionString = builder.Configuration.GetSection("ConnectionStrings")["DefaultConnection"];
-
         var connectionString = ConnectionHelper.GetConnectionString(builder.Configuration);
 
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -28,18 +26,12 @@ public static class StartupConfig
 
     public static void AddAuthServices(this WebApplicationBuilder builder)
     {
-        builder.Services.AddDefaultIdentity<AppUserModel>(options => options.SignIn.RequireConfirmedAccount = true)
+        builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ApplicationDbContext>();
     }
 
     public static void AddExternalAuthServices(this WebApplicationBuilder builder)
     {
-        // Add Google
-
-        // Add Twitter
-
-        // Add Github
-
-        // Add Facebook
+        // Add Google / Twitter / Github / Facebook
     }
 }

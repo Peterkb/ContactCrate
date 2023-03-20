@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace ContactCrate.Models;
 
-public class AppUserModel : IdentityUser
+public class AppUser : IdentityUser
 {
     [Required]
     [Display(Name = "First Name")]

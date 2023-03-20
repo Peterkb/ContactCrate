@@ -14,12 +14,12 @@ namespace ContactCrate.Areas.Identity.Pages.Account.Manage
 {
     public class SetPasswordModel : PageModel
     {
-        private readonly UserManager<AppUserModel> _userManager;
-        private readonly SignInManager<AppUserModel> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
         public SetPasswordModel(
-            UserManager<AppUserModel> userManager,
-            SignInManager<AppUserModel> signInManager)
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

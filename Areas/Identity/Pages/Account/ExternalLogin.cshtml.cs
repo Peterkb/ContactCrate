@@ -24,17 +24,17 @@ namespace ContactCrate.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
-        private readonly SignInManager<AppUserModel> _signInManager;
-        private readonly UserManager<AppUserModel> _userManager;
-        private readonly IUserStore<AppUserModel> _userStore;
-        private readonly IUserEmailStore<AppUserModel> _emailStore;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IUserStore<AppUser> _userStore;
+        private readonly IUserEmailStore<AppUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(
-            SignInManager<AppUserModel> signInManager,
-            UserManager<AppUserModel> userManager,
-            IUserStore<AppUserModel> userStore,
+            SignInManager<AppUser> signInManager,
+            UserManager<AppUser> userManager,
+            IUserStore<AppUser> userStore,
             ILogger<ExternalLoginModel> logger,
             IEmailSender emailSender)
         {
@@ -198,27 +198,27 @@ namespace ContactCrate.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private AppUserModel CreateUser()
+        private AppUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<AppUserModel>();
+                return Activator.CreateInstance<AppUser>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(AppUserModel)}'. " +
-                    $"Ensure that '{nameof(AppUserModel)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(AppUser)}'. " +
+                    $"Ensure that '{nameof(AppUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the external login page in /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
             }
         }
 
-        private IUserEmailStore<AppUserModel> GetEmailStore()
+        private IUserEmailStore<AppUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<AppUserModel>)_userStore;
+            return (IUserEmailStore<AppUser>)_userStore;
         }
     }
 }

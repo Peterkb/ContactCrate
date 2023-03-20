@@ -6,10 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Dependendy Injection Extensions
+// Dependency Injection Extensions
+// StartupConfig
 builder.AddStandardServices();
 builder.AddDatabaseServices();
 builder.AddAuthServices();
+// builder.AddExternalAuthServices();
 
 var app = builder.Build();
 

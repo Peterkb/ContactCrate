@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContactCrate.Data;
 
-public class ApplicationDbContext: IdentityDbContext<AppUserModel>
+public class ApplicationDbContext: IdentityDbContext<AppUser>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<ContactModel> Contacts { get; set; }
-    public virtual DbSet<CategoryModel> Categories { get; set; }
+    public virtual DbSet<Contact> Contacts { get; set; }
+    public virtual DbSet<Category> Categories { get; set; }
 }

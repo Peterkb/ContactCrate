@@ -10,11 +10,11 @@ using ContactCrate.Models;
 
 namespace ContactCrate.Controllers
 {
-    public class ContactModelsController : Controller
+    public class ContactsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ContactModelsController(ApplicationDbContext context)
+        public ContactsController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -50,11 +50,9 @@ namespace ContactCrate.Controllers
         }
 
         // POST: ContactModels/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,AppUserID,FirstName,LastName,BirthDate,Address1,Address2,City,State,Country,ZipCode,Email,LandlineNumber,CellNumber,DateCreated,ImageData,ImageType")] ContactModel contactModel)
+        public async Task<IActionResult> Create([Bind("Id,AppUserID,FirstName,LastName,BirthDate,Address1,Address2,City,State,Country,ZipCode,Email,LandlineNumber,CellNumber,DateCreated,ImageData,ImageType")] Contact contactModel)
         {
             if (ModelState.IsValid)
             {
@@ -82,11 +80,9 @@ namespace ContactCrate.Controllers
         }
 
         // POST: ContactModels/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,AppUserID,FirstName,LastName,BirthDate,Address1,Address2,City,State,Country,ZipCode,Email,LandlineNumber,CellNumber,DateCreated,ImageData,ImageType")] ContactModel contactModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AppUserID,FirstName,LastName,BirthDate,Address1,Address2,City,State,Country,ZipCode,Email,LandlineNumber,CellNumber,DateCreated,ImageData,ImageType")] Contact contactModel)
         {
             if (id != contactModel.Id)
             {

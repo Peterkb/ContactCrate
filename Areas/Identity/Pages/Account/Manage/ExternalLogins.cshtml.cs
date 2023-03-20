@@ -17,14 +17,14 @@ namespace ContactCrate.Areas.Identity.Pages.Account.Manage
 {
     public class ExternalLoginsModel : PageModel
     {
-        private readonly UserManager<AppUserModel> _userManager;
-        private readonly SignInManager<AppUserModel> _signInManager;
-        private readonly IUserStore<AppUserModel> _userStore;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly IUserStore<AppUser> _userStore;
 
         public ExternalLoginsModel(
-            UserManager<AppUserModel> userManager,
-            SignInManager<AppUserModel> signInManager,
-            IUserStore<AppUserModel> userStore)
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
+            IUserStore<AppUser> userStore)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -70,7 +70,7 @@ namespace ContactCrate.Areas.Identity.Pages.Account.Manage
                 .ToList();
 
             string passwordHash = null;
-            if (_userStore is IUserPasswordStore<AppUserModel> userPasswordStore)
+            if (_userStore is IUserPasswordStore<AppUser> userPasswordStore)
             {
                 passwordHash = await userPasswordStore.GetPasswordHashAsync(user, HttpContext.RequestAborted);
             }

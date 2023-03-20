@@ -2,7 +2,7 @@
 
 namespace ContactCrate.Models;
 
-public class CategoryModel
+public class Category
 {
     public int Id { get; set; }
 
@@ -14,6 +14,6 @@ public class CategoryModel
     public string? Name { get; set; }
 
     // Virtual properties
-    public virtual AppUserModel? AppUser { get; set; }
-    public virtual ICollection<ContactModel> Contacts { get; set; } = new HashSet<ContactModel>();
+    public virtual AppUser? AppUser { get; set; }
+    public virtual ICollection<Contact> Contacts { get; set; } = new HashSet<Contact>();
 }

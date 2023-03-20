@@ -15,13 +15,13 @@ namespace ContactCrate.Areas.Identity.Pages.Account
 {
     public class LoginWithRecoveryCodeModel : PageModel
     {
-        private readonly SignInManager<AppUserModel> _signInManager;
-        private readonly UserManager<AppUserModel> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly ILogger<LoginWithRecoveryCodeModel> _logger;
 
         public LoginWithRecoveryCodeModel(
-            SignInManager<AppUserModel> signInManager,
-            UserManager<AppUserModel> userManager,
+            SignInManager<AppUser> signInManager,
+            UserManager<AppUser> userManager,
             ILogger<LoginWithRecoveryCodeModel> logger)
         {
             _signInManager = signInManager;

@@ -10,11 +10,11 @@ using ContactCrate.Models;
 
 namespace ContactCrate.Controllers
 {
-    public class CategoryModelsController : Controller
+    public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public CategoryModelsController(ApplicationDbContext context)
+        public CategoriesController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -53,11 +53,9 @@ namespace ContactCrate.Controllers
         }
 
         // POST: CategoryModels/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,AppUserId,Name")] CategoryModel categoryModel)
+        public async Task<IActionResult> Create([Bind("Id,AppUserId,Name")] Category categoryModel)
         {
             if (ModelState.IsValid)
             {
@@ -87,11 +85,9 @@ namespace ContactCrate.Controllers
         }
 
         // POST: CategoryModels/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,AppUserId,Name")] CategoryModel categoryModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,AppUserId,Name")] Category categoryModel)
         {
             if (id != categoryModel.Id)
             {
@@ -107,7 +103,7 @@ namespace ContactCrate.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CategoryModelExists(categoryModel.Id))
+                    if (!CategoryExists(categoryModel.Id))
                     {
                         return NotFound();
                     }
@@ -160,7 +156,7 @@ namespace ContactCrate.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CategoryModelExists(int id)
+        private bool CategoryExists(int id)
         {
           return _context.Categories.Any(e => e.Id == id);
         }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ContactCrate.Models;
 
-public class ContactModel
+public class Contact
 {
     public int Id { get; set; }
     public int AppUserID { get; set; }
@@ -61,7 +61,7 @@ public class ContactModel
     public IFormFile? IamgeFile { get; set; }
 
     // Virtual Properties
-    public virtual AppUserModel? AppUser { get; set; }
-    public virtual ICollection<CategoryModel> Categories { get; set; } = new HashSet<CategoryModel>();
+    public virtual AppUser? AppUser { get; set; }
+    public virtual ICollection<Category> Categories { get; set; } = new HashSet<Category>();
 
 }
